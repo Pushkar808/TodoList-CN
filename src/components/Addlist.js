@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 
 export default function Addlist(props) {
-
   //title/body:to store the title/body for the create/update
   const [title, settitle] = useState("");
   const [body, setbody] = useState("");
-
-
   //function to show a small pop up like message
   function showToast(title, body, note) {
     document.getElementById('response').innerHTML = `
@@ -18,7 +15,6 @@ export default function Addlist(props) {
     `
     setTimeout(() => document.getElementById('response').innerHTML = "", 2000);
   }
-
   function createResponse() {
     //create response request
     return fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -65,7 +61,8 @@ export default function Addlist(props) {
     })
       .then((response) => {
         if (response.status == 200) {//if we get reponse 200 i.e we have executed delete request
-          document.getElementById('response').innerHTML = `
+          document.getElementById('response').innerHTML =
+          `
           <div id="toast"> 
           <p>Data has been <b>deleted</b> by the user ${props.userId}</p>
           </div>
@@ -93,8 +90,7 @@ export default function Addlist(props) {
         </div>
         <div className='input-field'>
           <button onClick={updateResponse}>Update Response</button>
-        </div>
-        
+        </div>        
         <div className='input-field'>
           <button onClick={deleteResponse}>Delete Response</button>
         </div>
