@@ -33,6 +33,7 @@ export default function Addlist(props) {
         showToast(json.title, json.body, "added");
       });
   }
+  console.log(title)
   function updateResponse() {
     //update response request
     fetch('https://jsonplaceholder.typicode.com/posts/1', {
@@ -52,7 +53,7 @@ export default function Addlist(props) {
         console.log(response.status)
       })
       .then((json) => {
-        showToast(json.title, json.body, "updated");
+        showToast(title, body, "updated");
       });
   }
   function deleteResponse() {
